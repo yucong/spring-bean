@@ -11,11 +11,10 @@ import org.springframework.context.ApplicationContextAware;
 
 /**
  * 该类实现了BeanNameAware,BeanFactoryAware,ApplicationContextAware,InitializingBean, DisposableBean五个接口，
- * 并且在applicationContext.xml文件中配置了该Bean的id为userService,并且配置了init-method和destroy-method,为
- * 该Bean配置了属性name为userSercie的值，然后定义了一个名为MyBeanPostProcessor的bean, 该bean定义类实现了
- * BeanPostProcessor接口
+ * 并且在applicationContext.xml文件中配置了该Bean的id为userService,
+ * 并且配置了init-method和destroy-method,为该Bean配置了属性name为userSercie的值，
+ * 然后定义了一个名为MyBeanPostProcessor的bean, 该bean定义类实现了BeanPostProcessor接口
  * 
- * @author Administrator
  * 
  */
 public class UserService implements BeanNameAware, BeanFactoryAware,
@@ -36,37 +35,29 @@ public class UserService implements BeanNameAware, BeanFactoryAware,
 		System.out.println("2.注入属性，setName() 被调用");
 	}
 
-
 	public void setBeanName(String beanName) {
 		System.out.println("3.注入beanName，BeanNameAware接口的setBeanName被调用, beanName : " + beanName);
-
 	}
 
 	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-		System.out
-				.println("4.注入beanFactory，BeanFactoryAware接口的setBeanFactory被调用, beanFactory : " + beanFactory);
+		System.out.println("4.注入beanFactory，BeanFactoryAware接口的setBeanFactory被调用, beanFactory : " + beanFactory);
 	}
 
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {
 		System.out.println("5.注入applicationContext，ApplicationContextAware接口的setApplicationContext() 被调用, applicationContext : " + applicationContext);
-
 	}
 
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("7.InitializingBean接口afterPropertiesSet() 被调用");
-
 	}
-
 
 	public void myInit() {
 		System.out.println("8.init-method配置的myInit() 被调用");
 	}
 
-
 	public void destroy() throws Exception {
 		System.out.println("10.DisposableBean接口的destroy() 被调用");
-
 	}
 
 	public void myDestroy() {

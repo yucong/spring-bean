@@ -4,8 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="userService"
-		class="com.yucong.spring.applicationcontext.UserService"
+	<bean id="userService" class="com.yucong.spring.applicationcontext.UserService"
 		init-method="myInit" destroy-method="myDestroy">
 		<property name="name" value="张三"></property>
 	</bean>
